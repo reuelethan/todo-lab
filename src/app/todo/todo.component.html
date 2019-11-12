@@ -1,0 +1,33 @@
+<head>
+  meta
+</head>
+
+<body>
+  <div [ngClass]="'holder'">
+    <h1>TODO<span [ngClass]="'list-title'"> List </span></h1>
+    <h4>A place to store your todos</h4>
+    <ol>
+      <form action="">
+        <input type="text" placeholder="Filter Your Todos" (input)="findStuff()" />
+      </form>
+      <li *ngFor="let item of displayedTodos; index as i">
+        <div class="item_container">
+          <p *ngIf="!item.competed" class="complete_btn">
+            Complete
+          </p>
+          <p class="task" [ngClass]="{ completed: item.completed }">
+            {{ item.task }}
+          </p>
+          <p>X</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="addForm-holder">
+      <form action="">
+        <input type="text" placeholder="Add to Your To-Dos" />
+        <button>Add</button>
+      </form>
+    </div>
+  </div>
+</body>
